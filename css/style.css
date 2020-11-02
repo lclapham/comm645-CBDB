@@ -4,7 +4,7 @@
     align-items: center;
 }
 
-.ui-page-active {
+.ui-body {
     max-height: 700px;
     max-width: 491px;
     display: block;
