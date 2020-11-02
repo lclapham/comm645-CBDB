@@ -1,0 +1,7 @@
+
+    Create a project folder called “LASTNAME-myapp.”
+    Create and save an index.html for your code in the “LASTNAME-myapp” folder.
+    Write code for 6 <div> Elements with data-role=”page” Attributes.
+    Write code to add an ID Attribute for each <div> (For example id=”pgWelcome”, id=”pgSignUp”, id=”pgHome”, id=”pgSave”, id=”pgView”, id=”pgOptions”).
+    Write code to add header, main content, and footer Elements for each screen.
+    In pgHome, pgSave, and pgView, write code to create a navbar Element.

@@ -1,0 +1,24 @@
+#wrapper {
+    margin-left: 25%;
+    width: 50%;
+    align-items: center;
+}
+
+.ui-page-active {
+    max-height: 700px;
+    max-width: 491px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+}
+
+
+#usageStatement {
+    margin-left: 8%;
+    margin-right: 3%;
+    border: 1px black solid;
+}
+img {
+    float: left;
+   }
