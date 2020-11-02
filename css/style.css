@@ -13,7 +13,6 @@
     padding: 0;
 }
 
-
 #usageStatement {
     margin-left: 8%;
     margin-right: 3%;
@@ -21,4 +20,8 @@
 }
 img {
     float: left;
-   }
+}
+
+a {
+    text-decoration: none;
+}
