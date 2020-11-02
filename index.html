@@ -15,238 +15,225 @@
 </head>
 
 <body class="ui-body">
-   
-        <!-- Welcome Page Start -->
-        <section data-theme="c" data-role="page" id="pgWelcome">
-            <!-- Navbar setup Start -->
-            <header data-role="header">
-                <h1>Comic Book Database</h1>
-            </header>
+
+    <!-- Welcome Page Start -->
+    <section data-theme="c" data-role="page" id="pgWelcome">
+        <!-- Navbar setup Start -->
+        <header data-role="header">
+            <h1>Comic Book Database</h1>
+        </header>
+        <div>
+            <img src="images/Welcome_Character_w-statement.svg" height=600px width=auto alt="Welcome-logo">
+        </div>
+        <div>
+            <a href="#userLogin"><button>Login</button></a>
+            <a href="#pgSignUp"><button>Sign Up</button></a>
+        </div>
+
+        <footer data-role="footer" data-position="relative">
+            <h4>Copyright &copy; 2020</h4>
+        </footer>
+
+    </section>
+
+    <!-- Home Page Start -->
+    <section data-theme="c" data-role="page" id="pgHome">
+        <!-- Navbar setup Start -->
+        <header data-role="header">
+            <h1>Comic Book Database</h1>
+            <a href="#pgOptions" data-icon="gear" class="ui-btn-right">Options</a>
+            <nav data-role="navbar">
+                <ul>
+                    <li><a href="#pgHome" data-icon="home" class="ui-btn-icon-bottom ui-btn-active ui-state-persist"
+                            data-transition="fade">Home</a>
+                    </li>
+                    <li><a href="#pgSave" data-icon="action" class="ui-btn-icon-bottom" data-transition="fade">Save</a>
+                    </li>
+                    <li><a href="#pgView" data-icon="bars" class="ui-btn-icon-bottom" data-transition="fade">View</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Home Page Body Start -->
+        <main>
+            <article role="main" class="ui-content">
+                <h3>Welcome to the Big Boy Comic Book Database</h3>
+            </article>
             <div>
-                <img src="images/Welcome_Character_w-statement.svg" height=600px width=auto alt="Welcome-logo">
+                <img src="images/SuperHero_Helper_2.svg" width="132" height="200" alt="SuperHelper">
             </div>
-            <div>
-                <a href="#userLogin"><button>Login</button></a>
-               <a href="#pgSignUp"><button>Sign Up</button></a>
-            </div>
+            <p id="usageStatement"> This app is your one stop solution for cataloging all of your comic books in one
+                convenient location. You can record all of the necessary information on your comic books to show you
+                are
+                a true comic book connoisseur. You can kept track of your total invest value, compare collections
+                with
+                your friends and even share your collection across the world, highlighting your execellent choices.
+            </p>
+        </main>
+        <div>
+            <h4>Let's get to work. Start by selecting "Save"! </h4>
+        </div>
 
-            <footer data-role="footer" data-position="relative">
-                <h4>Copyright &copy; 2020</h4>
-            </footer>
+        <!-- Footer Start -->
+        <footer data-role="footer" data-position="relative">
+            <h4>Copyright &copy; 2020</h4>
+        </footer>
+    </section>
 
-        </section>
+    <!-- Login Page Start -->
+    <section data-role="page" data-theme="c" id="userLogin">
+        <header data-role="header">
+            <h1>Comic Book Database</h1>
+        </header>
+        <main>
+            <article role="main" class="ui-content">
+                <form>
+                    <fieldset>
+                        <label for="">Screen Name</label>
+                        <input type="text">
+                    </fieldset>
 
-        <!-- Home Page Start -->
-        <section data-theme="c" data-role="page" id="pgHome">
-            <!-- Navbar setup Start -->
-            <header data-role="header">
-                <h1>Comic Book Database</h1>
-                <a href="#pgOptions" data-icon="gear" class="ui-btn-right">Options</a>
-                <nav data-role="navbar">
-                    <ul>
-                        <li><a href="#pgHome" data-icon="home" class="ui-btn-icon-bottom ui-btn-active ui-state-persist"
-                                data-transition="fade">Home</a>
-                        </li>
-                        <li><a href="#pgSave" data-icon="action" class="ui-btn-icon-bottom"
-                                data-transition="fade">Save</a>
-                        </li>
-                        <li><a href="#pgView" data-icon="bars" class="ui-btn-icon-bottom"
-                                data-transition="fade">View</a>
-                        </li>
-                    </ul>
-                </nav>
-            </header>
+                    <fieldset>
+                        <label>Password</label>
+                        <input type="password">
+                    </fieldset>
+                    <a href="#pgHome"><button>Login</button></a></>
+                    <!-- <input type="submit" value="Login"> -->
 
-            <!-- Home Page Body Start -->
-            <main>
-                <article role="main" class="ui-content">
-                    <h3>Welcome to the Big Boy Comic Book Database</h3>
-                </article>
-                <div>
-                    <img src="images/SuperHero_Helper_2.svg" width="132" height="200" alt="SuperHelper">
-                </div>
-                <p id="usageStatement"> This app is your one stop solution for cataloging all of your comic books in one
-                    convenient location. You can record all of the necessary information on your comic books to show you
-                    are
-                    a true comic book connoisseur. You can kept track of your total invest value, compare collections
-                    with
-                    your friends and even share your collection across the world, highlighting your execellent choices.
-                </p>
-            </main>
-            <div>
-                <h4>Let's get to work. Start by selecting "Save"! </h4>
-            </div>
-
+                </form>
+            </article>
             <!-- Footer Start -->
             <footer data-role="footer" data-position="relative">
                 <h4>Copyright &copy; 2020</h4>
             </footer>
-        </section>
 
-        <!-- Login Page Start -->
-        <section data-role="page" data-theme="c" id="userLogin">
-            <header data-role="header">
-                <h1>Comic Book Database</h1>
-            </header>
-            <main>
-                <article role="main" class="ui-content">
-                    <form>
-                        <fieldset>
-                            <label for="">Screen Name</label>
-                            <input type="text">
-                        </fieldset>
+    </section>
 
-                        <fieldset>
-                            <label>Password</label>
-                            <input type="password">
-                        </fieldset>
-                        <a href="#pgHome"><button>Login</button></a></>
-                        <!-- <input type="submit" value="Login"> -->
+    <!-- Sign Up Page Start -->
+    <section data-role="page" id="pgSignUp" data-theme="c">
+        <header data-role="header">
+            <h1>Comic Book Database</h1>
+        </header>
 
-                    </form>
-                </article>
-                <!-- Footer Start -->
-                <footer data-role="footer" data-position="relative">
-                    <h4>Copyright &copy; 2020</h4>
-                </footer>
+        <main>
+            <article role="main" class="ui-content">
+                <form>
+                    <fieldset>
+                        <label for="">First Name</label>
+                        <input type="text">
+                        <label for="">Last Name</label>
+                        <input type="text">
 
-        </section>
+                        <label for="Your Email">Email Address</label>
+                        <input type="email">
 
-        <!-- Sign Up Page Start -->
-        <section data-role="page" id="pgSignUp" data-theme="c">
-            <header data-role="header">
-                <h1>Comic Book Database</h1>
-            </header>
+                        <label for="">Screen Name</label>
+                        <input type="text">
 
-            <main>
-                <article role="main" class="ui-content">
-                    <form>
-                        <fieldset>
-                            <label for="">First Name</label>
-                            <input type="text">
-                            <label for="">Last Name</label>
-                            <input type="text">
+                        <label for="Your Email">Create Password</label>
+                        <input type="password" name="" id="password1">
 
-                            <label for="Your Email">Email Address</label>
-                            <input type="email">
+                        <label for="Your Email">Re-enter Password</label>
+                        <input type="password" name="" id="password2">
 
-                            <label for="">Screen Name</label>
-                            <input type="text">
+                    </fieldset>
 
-                            <label for="Your Email">Create Password</label>
-                            <input type="password" name="" id="password1">
+                    <!-- <input type="submit" value="Sign Up"> -->
+                    <a href="#pgHome"><button>Sign Up</button></a>
 
-                            <label for="Your Email">Re-enter Password</label>
-                            <input type="password" name="" id="password2">
+                </form>
+            </article>
 
-                        </fieldset>
+        </main>
 
-                        <!-- <input type="submit" value="Sign Up"> -->
-                        <a href="#pgHome"><button>Sign Up</button></a>
+        <footer data-role="footer" data-position="relative">
+            <h4>Copyright &copy; 2020</h4>
+        </footer>
+    </section>
 
-                    </form>
-                </article>
+    <!-- Save Page Start -->
+    <section data-role="page" id="pgSave" data-theme="c">
 
-                <div role="main" class="ui-content">
-                    <h2>Sign up page</h2>
-                    <!-- Simple back button for naviation -->
-                    <button onclick="goBack()" class="ui-btn ui-icon-back ui-btn-icon-notext ui-corner-all"></button>
-                    <p>Go Back</p>
-                </div>
-            </main>
+        <!-- Navbar setup Start -->
+        <header data-role="header">
+            <h1>Comic Book Database</h1>
+            <a href="#pgOptions" data-icon="gear" class="ui-btn-right">Options</a>
+            <nav data-role="navbar">
+                <ul>
+                    <li><a href="#pgHome" data-icon="home" class="ui-btn-icon-bottom" data-transition="fade">Home</a>
+                    </li>
+                    <li><a href="#pgSave" data-icon="action" class="ui-btn-icon-bottom ui-btn-active ui-state-persist"
+                            data-transition="fade">Save</a>
+                    </li>
+                    <li><a href="#pgView" data-icon="bars" class="ui-btn-icon-bottom" data-transition="fade">View</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
 
-            <footer data-role="footer" data-position="relative">
-                <h4>Copyright &copy; 2020</h4>
-            </footer>
-        </section>
+        <main>
+            <article role="main" class="ui-content">
+                <h2>Save page</h2>
+            </article>
+        </main>
 
-        <!-- Save Page Start -->
-        <section data-role="page" id="pgSave" data-theme="c">
+        <footer data-role="footer" data-position="relative">
+            <h4>Copyright &copy; 2020</h4>
+        </footer>
+    </section>
 
-            <!-- Navbar setup Start -->
-            <header data-role="header">
-                <h1>Comic Book Database</h1>
-                <a href="#pgOptions" data-icon="gear" class="ui-btn-right">Options</a>
-                <nav data-role="navbar">
-                    <ul>
-                        <li><a href="#pgHome" data-icon="home" class="ui-btn-icon-bottom"
-                                data-transition="fade">Home</a>
-                        </li>
-                        <li><a href="#pgSave" data-icon="action"
-                                class="ui-btn-icon-bottom ui-btn-active ui-state-persist"
-                                data-transition="fade">Save</a>
-                        </li>
-                        <li><a href="#pgView" data-icon="bars" class="ui-btn-icon-bottom"
-                                data-transition="fade">View</a>
-                        </li>
-                    </ul>
-                </nav>
-            </header>
+    <!-- View Page Start -->
+    <section data-role="page" id="pgView" data-theme="c">
 
-            <main>
-                <article role="main" class="ui-content">
-                    <h2>Save page</h2>
-                </article>
-            </main>
+        <!-- Navbar setup Start -->
+        <header data-role="header">
+            <h1>Comic Book Database</h1>
+            <a href="#pgOptions" data-icon="gear" class="ui-btn-right">Options</a>
+            <nav data-role="navbar">
+                <ul>
+                    <li><a href="#pgHome" data-icon="home" class="ui-btn-icon-bottom" data-transition="fade">Home</a>
+                    </li>
+                    <li><a href="#pgSave" data-icon="action" class="ui-btn-icon-bottom" data-transition="fade">Save</a>
+                    </li>
+                    <li><a href="#pgView" data-icon="bars" class="ui-btn-icon-bottom ui-btn-active ui-state-persist"
+                            data-transition="fade">View</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
 
-            <footer data-role="footer" data-position="relative">
-                <h4>Copyright &copy; 2020</h4>
-            </footer>
-        </section>
+        <main>
+            <article role="main" class="ui-content">
+                <h2>Page View</h2>
+            </article>
+        </main>
 
-        <!-- View Page Start -->
-        <section data-role="page" id="pgView" data-theme="c">
+        <footer data-role="footer" data-position="relative">
+            <h4>Copyright &copy; 2020</h4>
+        </footer>
+    </section>
 
-            <!-- Navbar setup Start -->
-            <header data-role="header">
-                <h1>Comic Book Database</h1>
-                <a href="#pgOptions" data-icon="gear" class="ui-btn-right">Options</a>
-                <nav data-role="navbar">
-                    <ul>
-                        <li><a href="#pgHome" data-icon="home" class="ui-btn-icon-bottom"
-                                data-transition="fade">Home</a>
-                        </li>
-                        <li><a href="#pgSave" data-icon="action" class="ui-btn-icon-bottom"
-                                data-transition="fade">Save</a>
-                        </li>
-                        <li><a href="#pgView" data-icon="bars" class="ui-btn-icon-bottom ui-btn-active ui-state-persist"
-                                data-transition="fade">View</a>
-                        </li>
-                    </ul>
-                </nav>
-            </header>
+    <!-- Options page Start -->
+    <section data-role="page" id="pgOptions" data-theme="c">
+        <header data-role="header">
+            <h1>Page Options</h1>
+        </header>
 
-            <main>
-                <article role="main" class="ui-content">
-                    <h2>Page View</h2>
-                </article>
-            </main>
+        <main>
+            <article role="main" class="ui-content">
+                <h2>Options page</h2>
+                <!-- Simple back button for naviation -->
+                <button onclick="goBack()" class="ui-btn ui-icon-back ui-btn-icon-notext ui-corner-all"></button>
+                <p>Go Back</p>
+            </article>
+        </main>
 
-            <footer data-role="footer" data-position="relative">
-                <h4>Copyright &copy; 2020</h4>
-            </footer>
-        </section>
+        <footer data-role="footer" data-position="relative">
+            <h4>Copyright &copy; 2020</h4>
+        </footer>
+    </section>
 
-        <!-- Options page Start -->
-        <section data-role="page" id="pgOptions" data-theme="c">
-            <header data-role="header">
-                <h1>Page Options</h1>
-            </header>
-
-            <main>
-                <article role="main" class="ui-content">
-                    <h2>Options page</h2>
-                    <!-- Simple back button for naviation -->
-                    <button onclick="goBack()" class="ui-btn ui-icon-back ui-btn-icon-notext ui-corner-all"></button>
-                    <p>Go Back</p>
-                </article>
-            </main>
-
-            <footer data-role="footer" data-position="relative">
-                <h4>Copyright &copy; 2020</h4>
-            </footer>
-        </section>
-   
 </body>
 
 <script src="js/scripts.js"></script>
