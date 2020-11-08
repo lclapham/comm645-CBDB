@@ -25,3 +25,10 @@ img {
 a {
     text-decoration: none;
 }
+
+	/*Testing alternative ICON  */
+.ui-icon-myicon:after {
+    background-image: url("../images/icons/21-skull-icon.png");
+    /* Make your icon fit */
+    background-size: 18px 18px;
+}

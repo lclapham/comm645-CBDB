@@ -42,6 +42,7 @@
         <header data-role="header">
             <h1>Comic Book Database</h1>
             <a href="#pgOptions" data-icon="gear" class="ui-btn-right">Options</a>
+           
             <nav data-role="navbar">
                 <ul>
                     <li><a href="#pgHome" data-icon="home" class="ui-btn-icon-bottom ui-btn-active ui-state-persist"
@@ -98,7 +99,9 @@
                         <label>Password</label>
                         <input type="password">
                     </fieldset>
-                    <a href="#pgHome"><button>Login</button></a></>
+                    <a href="#pgHome"><button>Login</button></a>
+                    <a href="#pgWelcome" data-transition="flip"><button>Cancel</button></a>
+
                     <!-- <input type="submit" value="Login"> -->
 
                 </form>
@@ -140,7 +143,8 @@
                     </fieldset>
 
                     <!-- <input type="submit" value="Sign Up"> -->
-                    <a href="#pgHome"><button>Sign Up</button></a>
+                    <a href="#pgHome"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-action">Sign Up</button></a>
+                    <a href="#pgWelcome" data-transition="flip"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-delete">Cancel</button></a>
 
                 </form>
             </article>
@@ -176,6 +180,8 @@
             <article role="main" class="ui-content">
                 <h2>Save page</h2>
             </article>
+            <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-refresh">Reset</button>
+            <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-plus">Save</button>
         </main>
 
         <footer data-role="footer" data-position="relative">
@@ -223,10 +229,14 @@
         <main>
             <article role="main" class="ui-content">
                 <h2>Options page</h2>
+                <p>This application is a simple application to store and catalog the users comic book collection</p>
                 <!-- Simple back button for naviation -->
                 <button onclick="goBack()" class="ui-btn ui-icon-back ui-btn-icon-notext ui-corner-all"></button>
                 <p>Go Back</p>
             </article>
+            <div>
+               <p>Design by: Lamar Clapham &ltlamar.clapham@test.com&gt</p>
+            </div>
         </main>
 
         <footer data-role="footer" data-position="relative">
