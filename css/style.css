@@ -1,11 +1,5 @@
-#wrapper {
-    margin-left: 25%;
-    width: 50%;
-    align-items: center;
-}
-
 .ui-body {
-    max-height: 700px;
+    max-height: 800px;
     max-width: 491px;
     display: block;
     margin-left: auto;
@@ -26,9 +20,17 @@ a {
     text-decoration: none;
 }
 
-	/*Testing alternative ICON  */
-.ui-icon-myicon:after {
-    background-image: url("../images/icons/21-skull-icon.png");
-    /* Make your icon fit */
-    background-size: 18px 18px;
+.img-container {
+    position: relative;
+    padding-bottom: 70%; /* 16:9 ratio */
+    height: 0;
+    overflow: hidden;
+}
+
+.img-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
