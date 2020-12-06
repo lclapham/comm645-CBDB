@@ -22,13 +22,13 @@
         <header data-role="header">
             <h1>Comic Book Database</h1>
         </header>
-        <div >
-           <div class="img-container">
-            <img src="images/Welcome_Character_w-statement.svg" alt="Welcome-logo">
-           </div>
-                          
-          <div>
-                <a href="#userLogin"><button>Login</button></a>
+        <div>
+            <div class="img-container">
+                <img src="images/Welcome_Character_w-statement.svg" alt="Welcome-logo">
+            </div>
+
+            <div>
+                <a href="#pgUserLogin"><button>Login</button></a>
                 <a href="#pgSignUp"><button>Sign Up</button></a>
             </div>
         </div>
@@ -85,26 +85,29 @@
     </section>
 
     <!-- Login Page Start -->
-    <section data-role="page" data-theme="c" id="userLogin">
+    <section data-role="page" data-theme="c" id="pgUserLogin">
         <header data-role="header">
             <h1>Comic Book Database</h1>
         </header>
         <main>
             <article role="main" class="ui-content">
-                <form>
+                <form id="myLoginForm">
                     <fieldset>
-                        <label for="">Screen Name</label>
-                        <input type="text">
+                        <label for="">Email Address</label>
+                        <input id="inLoginEmail" type="email">
                     </fieldset>
 
                     <fieldset>
                         <label>Password</label>
-                        <input type="password">
+                        <input id="inUserPwLogin" type="password">
                     </fieldset>
-                    <a href="#pgHome"><button
-                            class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-action">Login</button></a>
-                    <a href="#pgWelcome" data-transition="flip"><button
-                            class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-delete">Cancel</button></a>
+                    <button type="submit" id="loginBtn"
+                        class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-action">Login</button>
+
+                    <!-- <a href="#pgHome"><button
+                            class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-action">Login</button></a> -->
+                    <!-- <a href="#pgWelcome" data-transition="flip"><button
+                            class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-delete">Cancel</button></a> -->
 
                     <!-- <input type="submit" value="Login"> -->
 
@@ -125,30 +128,31 @@
 
         <main>
             <article role="main" class="ui-content">
-                <form>
+                <form id="mySignUpForm">
                     <fieldset>
                         <label for="">First Name</label>
-                        <input type="text">
+                        <input id="fName" type="text">
                         <label for="">Last Name</label>
-                        <input type="text">
+                        <input id="lName" type="text">
 
                         <label for="Your Email">Email Address</label>
-                        <input type="email">
+                        <input id="uEmail" type="email">
 
                         <label for="">Screen Name</label>
-                        <input type="text">
+                        <input id="uName" type="text">
 
-                        <label for="Your Email">Create Password</label>
-                        <input type="password" name="" id="password1">
+                        <label for="password1">Create Password</label>
+                        <input id="uPassword" type="password" name="" id="password1">
 
-                        <label for="Your Email">Re-enter Password</label>
+                        <label for="password2">Re-enter Password</label>
                         <input type="password" name="" id="password2">
 
                     </fieldset>
 
+                    <button id="uSignUpBtn" type="submit">Sign Up</button>
                     <!-- <input type="submit" value="Sign Up"> -->
-                    <a href="#pgHome"><button
-                            class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-action">Sign Up</button></a>
+                    <!-- <a href="#pgHome"><button
+                            class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-action">Sign Up</button></a> -->
                     <a href="#pgWelcome" data-transition="flip"><button
                             class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-delete">Cancel</button></a>
 
