@@ -84,13 +84,7 @@ function goBack() {
     window.history.back();
 }
 
-
-// // Git rid of this later. Simple redirect for login page testing
-// function tempLogin() {
-//     document.location.href = "#pgHome";
-// }
-
-
+// Just Playing with these.
 // const myCar = {
 //     color: "red",
 //     topSpeed: 300,
