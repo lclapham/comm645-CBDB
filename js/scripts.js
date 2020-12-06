@@ -68,6 +68,7 @@ function onDeviceReady(e) {
         $(":mobile-pagecontainer").pagecontainer("change", "#pgUserLogin");
     };
 
+    // Super Simple Logout
     function uLogout() {
         let result = window.confirm("Are you sure you want to logout?");
         if (result = true) {
