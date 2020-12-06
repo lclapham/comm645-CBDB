@@ -18,7 +18,12 @@ function onDeviceReady(e) {
         fnSignUp(e);
     });
 
-    //////////////////////// Functions mainLogin, 
+    // User Logout Listner
+    $('#uLogoutBtn').click(function () {
+        uLogout();
+    })
+
+    //////////////////////// Functions mainLogin, Signup, Logout
     function mainLogin(e) {
         console.log(e);
         e.preventDefault();
@@ -62,6 +67,13 @@ function onDeviceReady(e) {
 
         $(":mobile-pagecontainer").pagecontainer("change", "#pgUserLogin");
     };
+
+    function uLogout() {
+        let result = window.confirm("Are you sure you want to logout?");
+        if (result = true) {
+            $(":mobile-pagecontainer").pagecontainer("change", "#pgWelcome");
+        } 
+    }
 };
 
 
