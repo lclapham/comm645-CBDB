@@ -1,6 +1,6 @@
 document.addEventListener("deviceready", onDeviceReady(), false);
 function onDeviceReady(e) {
-    e.preventDefault();
+   
     console.log("Device Ready");
 
     ////////////////// Setup Variables
@@ -78,8 +78,6 @@ function onDeviceReady(e) {
             // Reset the forms
             $('#myLoginForm')[0].reset();
             $('#mySignUpForm')[0].reset();
-
-
         } 
     }
 };
