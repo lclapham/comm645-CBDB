@@ -24,6 +24,7 @@ function onDeviceReady(e) {
         uLogout();
     })
 
+    
     //////////////////////// Functions mainLogin, Signup, Logout
     function mainLogin(e) {
         console.log(e);
