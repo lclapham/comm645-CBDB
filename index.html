@@ -185,13 +185,32 @@
                 </ul>
             </nav>
         </header>
-
         <main>
-            <article role="main" class="ui-content">
-                <h2>Save page</h2>
+            <article>
+                <form id="cbSaveFrm">
+                    <label for="cbTitle">Title</label>
+                    <input type="text" id="cbTitle">
+
+                    <label for="cbVol">Volume</label>
+                    <input type="text" id="cbVol">
+
+                    <label for="cbYear">Year</label>
+                    <input type="text" id="cbYear">
+
+                    <label for="cbPublisher">Publisher</label>
+                    <input type="text" id="cbPublisher">
+
+                    <label for="cbNotes">Notes</label>
+                    <input type="text" id="cbNotes">
+
+                    <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-plus" id="cbSaveBtn"
+                        type="submit">Save</button>
+
+                    <button id="cbResetFrmBtn"
+                        class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-refresh">Reset</button>
+
+                </form>
             </article>
-            <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-refresh">Reset</button>
-            <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-plus">Save</button>
         </main>
 
         <footer data-role="footer" data-position="relative">
@@ -259,7 +278,7 @@
 
 </body>
 
-<script src="js/scripts.js"></script>
 <script src="js/pouchDB-7.2.1/pouchdb-7.2.1.min.js"></script>
+<script src="js/scripts.js"></script>
 
 </html>

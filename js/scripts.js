@@ -1,22 +1,27 @@
 document.addEventListener("deviceready", onDeviceReady(), false);
-function onDeviceReady(e) {
-   
+function onDeviceReady(event) {
+
     console.log("Device Ready");
 
     ////////////////// Setup Variables
     const $elBtnLogIn = $("#loginBtn");
-    console.log($elBtnLogIn)
+    console.log($elBtnLogIn);
 
+    // Save form DB
+    let myDB = new PouchDB("myComics");
+
+    // Save form Variables
+    const $elmSaveComic = $('#cbSaveFrm');
 
     /////////////////// Setup Listing Events
     // User Login Form Event
-    $('#myLoginForm').submit(function (e) {
-        mainLogin(e);
+    $('#myLoginForm').submit(function (event) {
+        mainLogin(event);
     });
 
     // User Signup FORM Listner
-    $('#mySignUpForm').submit(function (e) {
-        fnSignUp(e);
+    $('#mySignUpForm').submit(function (event) {
+        fnSignUp(event);
     });
 
     // User Logout Listner
@@ -24,10 +29,32 @@ function onDeviceReady(e) {
         uLogout();
     })
 
-    
+    // CB Save Form Listner
+    $elmSaveComic.submit(function (event) {
+        event.preventDefault(event);
+        //Use these variables to check if user filled out form.
+        let $cbTitleVal = $('#cbTitle').val(),
+            $cbVolVal = $('#cbVol').val(),
+            $cbYearVal = $('#cbYear').val(),
+            $cbPublisherVal = $('#cbPublisher').val(),
+            $cbNotesVal = $("#cbNotes").val();
+
+        if ($cbTitleVal == "") {
+            window.alert("You must fill in Title to proceed");
+        } else if ($cbVolVal || $cbYearVal || $cbPublisherVal || $cbNotesVal === "") {
+            let confimrationChk = window.confirm("You are missing key fields are you sure you want to save?")
+            if (confimrationChk < 1) {
+            } else {
+                fnSaveComic(event);
+            }
+        } else {
+            fnSaveComic(event);
+        }
+    });
+
     //////////////////////// Functions mainLogin, Signup, Logout
-    function mainLogin(e) {
-        console.log(e);
+    function mainLogin(event) {
+        console.log(event);
         e.preventDefault();
         console.log("mainLogin(event) is running");
 
@@ -54,8 +81,8 @@ function onDeviceReady(e) {
     };
 
     // Need to add a validation so the user must fill in all fields    
-    function fnSignUp(e) {
-        e.preventDefault();
+    function fnSignUp(event) {
+        event.preventDefault(event);
         let dataStore = {
             fName: $('#fName').val(),
             lName: $('#lName').val(),
@@ -79,9 +106,53 @@ function onDeviceReady(e) {
             // Reset the forms
             $('#myLoginForm')[0].reset();
             $('#mySignUpForm')[0].reset();
-        } 
+        }
     }
+
+    // Comic book Save form database prep function
+    function fnPrepComic() {
+        console.log("fnPrepComic() is running");
+
+        let $cbTitleVal = $('#cbTitle').val(),
+            $cbVolVal = $('#cbVol').val(),
+            $cbYearVal = $('#cbYear').val(),
+            $cbPublisherVal = $('#cbPublisher').val(),
+            $cbNotesVal = $("#cbNotes").val();
+
+        let tmpComic = {
+            "_id": $cbTitleVal.replace(/\W/g, "") + $cbYearVal + $cbVolVal,
+            "title": $cbTitleVal,
+            "number": $cbVolVal,
+            "year": $cbYearVal,
+            "publisher": $cbPublisherVal,
+            "notes": $cbNotesVal
+        };
+
+        return tmpComic;
+    }
+
+    // Comic book Save function to store configured data
+    function fnSaveComic(event) {
+        event.preventDefault(event);
+        console.log('fnSaveComic(event) is running');
+        let aComic = fnPrepComic();
+        console.log(aComic);
+
+        // Function to put the comic book configured data into PouchDB
+        myDB.put(aComic, function (failure, success) {
+            if (failure) {
+                console.log("Error: " + failure.message);
+                window.alert("Comic book already Saved");
+            } else {
+                window.alert("One Comic Saved!")
+                console.log("comic Saved!" + success.ok);
+                $elmSaveComic[0].reset();
+            }
+        });
+
+    };
 };
+
 
 
 
