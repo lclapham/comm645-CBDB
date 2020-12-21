@@ -31,9 +31,9 @@ function onDeviceReady(event) {
 
     // Save Page Reset Button To clear form
     $('#cbResetFrmBtn').click(function(){
-        console.log("hello world")
+        // reset all field in save form
         $('#cbSaveFrm')[0].reset();
-    })
+    });
     // CB Save Form Listner
     $elmSaveComic.submit(function (event) {
         event.preventDefault(event);
