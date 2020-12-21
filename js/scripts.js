@@ -29,6 +29,11 @@ function onDeviceReady(event) {
         uLogout();
     })
 
+    // Save Page Reset Button To clear form
+    $('#cbResetFrmBtn').click(function(){
+        console.log("hello world")
+        $('#cbSaveFrm')[0].reset();
+    })
     // CB Save Form Listner
     $elmSaveComic.submit(function (event) {
         event.preventDefault(event);
@@ -36,12 +41,12 @@ function onDeviceReady(event) {
         let $cbTitleVal = $('#cbTitle').val(),
             $cbVolVal = $('#cbVol').val(),
             $cbYearVal = $('#cbYear').val(),
-            $cbPublisherVal = $('#cbPublisher').val(),
-            $cbNotesVal = $("#cbNotes").val();
+            $cbPublisherVal = $('#cbPublisher').val();
+            
 
         if ($cbTitleVal == "") {
             window.alert("You must fill in Title to proceed");
-        } else if ($cbVolVal || $cbYearVal || $cbPublisherVal || $cbNotesVal === "") {
+        } else if (($cbVolVal  == "") || ($cbYearVal  == "") || ($cbPublisherVal == "")) {
             let confimrationChk = window.confirm("You are missing key fields are you sure you want to save?")
             if (confimrationChk < 1) {
             } else {
@@ -55,7 +60,7 @@ function onDeviceReady(event) {
     //////////////////////// Functions mainLogin, Signup, Logout
     function mainLogin(event) {
         console.log(event);
-        e.preventDefault();
+    event.preventDefault(event);
         console.log("mainLogin(event) is running");
 
         let $elUserEmail = $("#inLoginEmail"),
