@@ -30,10 +30,11 @@ function onDeviceReady(event) {
     })
 
     // Save Page Reset Button To clear form
-    $('#cbResetFrmBtn').click(function(){
+    $('#cbResetFrmBtn').click(function () {
         // reset all field in save form
         $('#cbSaveFrm')[0].reset();
     });
+
     // CB Save Form Listner
     $elmSaveComic.submit(function (event) {
         event.preventDefault(event);
@@ -42,11 +43,11 @@ function onDeviceReady(event) {
             $cbVolVal = $('#cbVol').val(),
             $cbYearVal = $('#cbYear').val(),
             $cbPublisherVal = $('#cbPublisher').val();
-            
+
 
         if ($cbTitleVal == "") {
             window.alert("You must fill in Title to proceed");
-        } else if (($cbVolVal  == "") || ($cbYearVal  == "") || ($cbPublisherVal == "")) {
+        } else if (($cbVolVal == "") || ($cbYearVal == "") || ($cbPublisherVal == "")) {
             let confimrationChk = window.confirm("You are missing key fields are you sure you want to save?")
             if (confimrationChk < 1) {
             } else {
@@ -57,10 +58,10 @@ function onDeviceReady(event) {
         }
     });
 
-    //////////////////////// Functions mainLogin, Signup, Logout
+    //////////////////////// Functions mainLogin, Signup, Logout, View Comics
     function mainLogin(event) {
         console.log(event);
-    event.preventDefault(event);
+        event.preventDefault(event);
         console.log("mainLogin(event) is running");
 
         let $elUserEmail = $("#inLoginEmail"),
@@ -113,7 +114,39 @@ function onDeviceReady(event) {
             $('#mySignUpForm')[0].reset();
         }
     }
+    // Load data from DB to present on Comic Book View page 
+    function fnViewComics() {
+        console.log("fnViewComics() is running");
+        myDB.allDocs({ "ascending": true, "include_docs": true },
+            function (failure, success) {
+                if (failure) {
+                    console.log("Failure retrieving data: " + failure);
+                } else {
+                    console.log("Success, there is data : " + success);
+                }
 
+                if (success.rows[0] === undefined) {
+                    $("#viewComics").html("No comics saved, yet");
+                } else {
+                    console.log("Comics to display: " + success.rows.length);
+                }
+
+                let comicData ="<table><tr><th>Name</th><th>#</th><th>Year</th><th>Pub</th><th>Note</th></tr>"
+
+                for (let i = 0; i < success.rows.length; i++) {
+                    comicData += "<tr class='btnShowComicInfo' id='" + success.rows[i].doc._id + "'> <td>" +
+                    success.rows[i].doc.title +
+                    "</td><td>" + success.rows[i].doc.number +
+                    "</td><td>" + success.rows[i].doc.year +
+                    "</td><td>" + success.rows[i].doc.publisher +
+                    "</td><td>" + success.rows[i].doc.notes +
+                   "</td></tr>";
+                }
+                comicData += "</table>";
+                $("#viewComics").html(comicData);
+            });
+    }
+    fnViewComics();
     // Comic book Save form database prep function
     function fnPrepComic() {
         console.log("fnPrepComic() is running");
@@ -157,9 +190,6 @@ function onDeviceReady(event) {
 
     };
 };
-
-
-
 
 // Simple return to last page -->
 function goBack() {
