@@ -33,7 +33,14 @@ function onDeviceReady(event) {
     $('#cbResetFrmBtn').click(function () {
         // reset all field in save form
         $('#cbSaveFrm')[0].reset();
+
     });
+
+    //Listen for view page to be selected and refresh list
+    $('.navView').click(function () {
+        console.log('naveView is working');
+        fnViewComics();
+    })
 
     // CB Save Form Listner
     $elmSaveComic.submit(function (event) {
@@ -56,9 +63,45 @@ function onDeviceReady(event) {
         } else {
             fnSaveComic(event);
         }
+
     });
 
-    //////////////////////// Functions mainLogin, Signup, Logout, View Comics
+    // View Page Event Listners
+    // Placeholder for view button
+
+    // #pgView Delete button
+
+    $('#btnDeleteComic').click(function () {
+        let tableLength = $('#pgViewTable tr').length - 1;
+
+        for (i = 0; i < tableLength; i++) {
+            let rowIdDelete ="";
+            if ($("#rowSelect" + [i]).is(':checked') == true) {
+                rowIdDelete = $('#rowSelect' + [i]).parent().parent().attr('id');
+                console.log("We are deleting this row " + rowIdDelete)
+                deleteComics(rowIdDelete);
+                fnViewComics();
+                // myDB.get(rowIdDelete).then(function (doc) {
+                //     return myDB.remove(doc);
+                    
+                // });
+            } else {
+                console.log("nothing to delete")
+            }
+            fnViewComics();
+        }
+
+    });
+
+    function deleteComics(rowIdDelete){
+        myDB.get(rowIdDelete).then(function (doc) {
+                return myDB.remove(doc);
+                
+            });
+
+    }
+
+    //////////////////////// Functions mainLogin, Signup, Logout, View Comics, Delete Comics
     function mainLogin(event) {
         console.log(event);
         event.preventDefault(event);
@@ -131,21 +174,24 @@ function onDeviceReady(event) {
                     console.log("Comics to display: " + success.rows.length);
                 }
 
-                let comicData ="<table><tr><th>Name</th><th>#</th><th>Year</th><th>Pub</th><th>Note</th></tr>"
+                let comicData = "<table id='pgViewTable'><tr><th>Name</th><th>Vol/Issue #</th><th>Year</th><th>Publisher</th><th>Notes</th><th>Select</th></tr>"
 
                 for (let i = 0; i < success.rows.length; i++) {
                     comicData += "<tr class='btnShowComicInfo' id='" + success.rows[i].doc._id + "'> <td>" +
-                    success.rows[i].doc.title +
-                    "</td><td>" + success.rows[i].doc.number +
-                    "</td><td>" + success.rows[i].doc.year +
-                    "</td><td>" + success.rows[i].doc.publisher +
-                    "</td><td>" + success.rows[i].doc.notes +
-                   "</td></tr>";
+                        success.rows[i].doc.title +
+                        "</td><td>" + success.rows[i].doc.number +
+                        "</td><td>" + success.rows[i].doc.year +
+                        "</td><td>" + success.rows[i].doc.publisher +
+                        "</td><td>" + success.rows[i].doc.notes +
+                        "</td><td>" + "<input type='checkbox' id='rowSelect" + [i] + "'/>" +
+                        "</td></tr>";
+                    console.log(success.rows[i].doc._id);
                 }
                 comicData += "</table>";
                 $("#viewComics").html(comicData);
             });
     }
+
     fnViewComics();
     // Comic book Save form database prep function
     function fnPrepComic() {
@@ -189,6 +235,7 @@ function onDeviceReady(event) {
         });
 
     };
+
 };
 
 // Simple return to last page -->
@@ -218,3 +265,28 @@ function goBack() {
 
 //     });
 // });
+
+// function readSingleFile(e) {
+//     var file = e.target.files[0];
+//     if (!file) {
+//         return;
+//     }
+//     var reader = new FileReader();
+//     reader.onload = function (e) {
+//         var contents = e.target.result;
+//         displayContents(contents);
+//     };
+//     reader.readAsText(file);
+// }
+
+// function displayContents(contents) {
+//     var element = document.getElementById('file-content');
+//     element.textContent = contents;
+// }
+
+// document.getElementById('file-input')
+//     .addEventListener('change', readSingleFile, false);
+
+// <input type="file" id="file-input" />
+//<h3>Contents of the file:</h3>
+//<pre id="file-content"></pre>
