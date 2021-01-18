@@ -2,6 +2,12 @@
 <html lang="en">
 
 <head>
+
+    <meta name="viewport"
+        content="width = device-width, initial-scale = 1.0, minimum-scale = 1, maximum-scale = 1, user-scalable = no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+
     <meta charset="UTF-8">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <link rel="stylesheet" href="css/themes/Comic_book_theme_2.css" />
@@ -17,29 +23,30 @@
 <body class="ui-body">
 
     <!-- Welcome Page Start -->
-    <section data-theme="c" data-role="page" id="pgWelcome">
+    <section data-theme="c" data-role="page" id="pgWelcome" data-fullscreen="true">
         <!-- Navbar setup Start -->
-        <header data-role="header">
+        <header data-role="header" data-position="fixed">
             <h1>Comic Book Database</h1>
         </header>
-        <div>
+        <article>
             <div class="img-container">
-                <img src="images/Welcome_Character_w-statement.svg" alt="Welcome-logo">
+                <img class="responsiveImage" src="images/Welcome_Character_w-statement.svg" alt="Welcome-logo"
+                    width="300" height="400">
             </div>
 
-            <div>
+            <div class="userBtns">
                 <a href="#pgUserLogin"><button>Login</button></a>
                 <a href="#pgSignUp"><button>Sign Up</button></a>
             </div>
-        </div>
-        <footer data-role="footer" data-position="relative">
+        </article>
+        <footer data-role="footer" data-position="fixed">
             <h4>Copyright &copy; 2020</h4>
         </footer>
 
     </section>
 
     <!-- Home Page Start -->
-    <section data-theme="c" data-role="page" id="pgHome">
+    <section data-theme="c" data-role="page" id="pgHome" data-fullscreen="true">
         <!-- Navbar setup Start -->
         <header data-role="header">
             <h1>Comic Book Database</h1>
@@ -80,7 +87,7 @@
         </div>
 
         <!-- Footer Start -->
-        <footer data-role="footer" data-position="relative">
+        <footer data-role="footer" data-position="fixed">
             <h4>Copyright &copy; 2020</h4>
         </footer>
     </section>
@@ -103,7 +110,7 @@
                         <input id="inUserPwLogin" type="password">
                     </fieldset>
                     <button type="submit" id="loginBtn"
-                        class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-action">Login</button>
+                        class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-action userBtns">Login</button>
 
                     <!-- <a href="#pgHome"><button
                             class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-action">Login</button></a> -->
@@ -115,14 +122,14 @@
                 </form>
             </article>
             <!-- Footer Start -->
-            <footer data-role="footer" data-position="relative">
+            <footer data-role="footer" data-position="fixed">
                 <h4>Copyright &copy; 2020</h4>
             </footer>
 
     </section>
 
     <!-- Sign Up Page Start -->
-    <section data-role="page" id="pgSignUp" data-theme="c">
+    <section data-role="page" id="pgSignUp" data-theme="c" data-fullscreen="true">
         <header data-role="header">
             <h1>Comic Book Database</h1>
         </header>
@@ -150,25 +157,22 @@
 
                     </fieldset>
 
-                    <button id="uSignUpBtn" type="submit">Sign Up</button>
-                    <!-- <input type="submit" value="Sign Up"> -->
-                    <!-- <a href="#pgHome"><button
-                            class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-action">Sign Up</button></a> -->
-                    <a href="#pgWelcome" data-transition="flip"><button
-                            class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-delete">Cancel</button></a>
+                    <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-action" id="uSignUpBtn"
+                        type="submit">Sign Up</button>
+                    <button data-transition="flip"
+                        class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-delete">Cancel</button></a>
 
                 </form>
             </article>
-
         </main>
 
-        <footer data-role="footer" data-position="relative">
+        <footer data-role="footer" data-position="fixed">
             <h4>Copyright &copy; 2020</h4>
         </footer>
     </section>
 
     <!-- Save Page Start -->
-    <section data-role="page" id="pgSave" data-theme="c">
+    <section data-role="page" id="pgSave" data-theme="c" data-fullscreen="true">
 
         <!-- Navbar setup Start -->
         <header data-role="header">
@@ -187,7 +191,7 @@
                 </ul>
             </nav>
         </header>
-        <main>
+        <main class="ui-content">
             <article>
                 <form id="cbSaveFrm">
                     <label for="cbTitle">Title</label>
@@ -203,28 +207,26 @@
                     <input type="text" id="cbPublisher">
 
                     <label for="cbNotes">Notes</label>
-                    <textarea name="cbNotes" id="cbNotes" cols="30" rows="10"></textarea>
+                    <textarea name="cbNotes" id="cbNotes" cols="30" rows="15"></textarea>
 
                     <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-plus" id="cbSaveBtn"
                         type="submit">Save</button>
+                        <button id="cbResetFrmBtn"
+                        class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-refresh">Reset</button>
                 </form>
-
-                <button id="cbResetFrmBtn"
-                    class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-refresh">Reset</button>
-
             </article>
         </main>
 
-        <footer data-role="footer" data-position="relative">
+        <footer data-role="footer" data-position="fixed">
             <h4>Copyright &copy; 2020</h4>
         </footer>
     </section>
 
     <!-- View Page Start -->
-    <section data-role="page" id="pgView" data-theme="c">
+    <section data-role="page" id="pgView" data-theme="c" data-fullscreen="true">
 
         <!-- Navbar setup Start -->
-        <header data-role="header">
+        <header data-role="header" >
             <h1>Comic Book Database</h1>
             <a href="#pgOptions" data-icon="gear" class="ui-btn-right">Options</a>
             <nav data-role="navbar">
@@ -241,7 +243,7 @@
             </nav>
         </header>
 
-        <main>
+        <main class="ui-content">
             <article role="main" class="ui-content">
                 <h2>Comics List</h2>
 
@@ -252,13 +254,13 @@
             </article>
         </main>
 
-        <footer data-role="footer" data-position="relative">
+        <footer data-role="footer" data-position="fixed" data-fullscreen="true">
             <h4>Copyright &copy; 2020</h4>
         </footer>
     </section>
 
     <!-- Options page Start -->
-    <section data-role="page" id="pgOptions" data-theme="c">
+    <section data-role="page" id="pgOptions" data-theme="c" data-fullscreen="true">
         <header data-role="header">
             <h1>Page Options</h1>
         </header>
@@ -282,19 +284,19 @@
             </div>
         </main>
 
-        <footer data-role="footer" data-position="relative">
+        <footer data-role="footer" data-position="fixed">
             <h4>Copyright &copy; 2020</h4>
         </footer>
     </section>
 
     <!-- Edit Page Start -->
-    <section data-theme="c" data-role="page" id="pgEditComic">
+    <section data-theme="c" data-role="page" id="pgEditComic" data-fullscreen="true">
         <!-- Navbar setup Start -->
         <header data-role="header">
             <h1>Edit Comics</h1>
             <a href="#pgOptions" data-icon="gear" class="ui-btn-right">Options</a>
 
-            
+
         </header>
 
         <!-- Edit Page Body Start -->
@@ -320,22 +322,22 @@
                     <!-- Save Changes -->
                     <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-edit" id="cbUpdateBtn"
                         type="submit">Update Comic</button>
-                                    
+
                 </form>
-                   <!-- Cancel Actions -->
-                   <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-forbidden" id="cbCancelBtn"
-                   type="button">Cancel Edit</button>
-                   
-               <!-- Delete Actions -->
-               <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-delete" id="btnDeleteComic"
-                   type="button">Delete Comic</button>
+                <!-- Cancel Actions -->
+                <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-forbidden" id="cbCancelBtn"
+                    type="button">Cancel Edit</button>
+
+                <!-- Delete Actions -->
+                <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-delete" id="btnDeleteComic"
+                    type="button">Delete Comic</button>
 
             </article>
 
         </main>
 
         <!-- Footer Start -->
-        <footer data-role="footer" data-position="relative">
+        <footer data-role="footer" data-position="fixed">
             <h4>Copyright &copy; 2020</h4>
         </footer>
     </section>

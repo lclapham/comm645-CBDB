@@ -1,10 +1,15 @@
 .ui-body {
-    max-height: 800px;
-    max-width: 491px;
+    /* max-height: 100vh;
+    max-width: 491px; */
+    /* max-height: 100vh;
+    max-width:90vw; */
     display: block;
     margin-left: auto;
     margin-right: auto;
     padding: 0;
+}
+.ui-content {
+    padding: 0 1em;
 }
 
 #usageStatement {
@@ -20,23 +25,22 @@ a {
     text-decoration: none;
 }
 
-.img-container {
+.userBtns {
     position: relative;
-    padding-bottom: 70%; /* 16:9 ratio */
-    height: 0;
-    overflow: hidden;
+    width: 96%;
+    margin: auto;
 }
-
-.img-container img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+.responsiveImage {
+    margin-top: 5vh;
+    margin-bottom: 2%;
+    /* width: 100%;
+    height: auto; */
+    max-height: 100%;
+    max-width: 100%;
 }
 
 div#viewComics table {
-    background-color: #ffffe6 ;
+    background-color: #ffffe6;
     margin: auto;
     width: 100%;
     border: 2px solid #5e778d;
@@ -45,25 +49,25 @@ div#viewComics table {
     text-align: center;
 }
 
-div#viewComics table tr td  {
+s div#viewComics table tr td {
     border-bottom: #5e778d 1px solid;
     border-right: #5e778d 1px solid;
-        border-radius: 0.3125em;
-  }
+    border-radius: 0.3125em;
+}
 
-  div#viewComics table tr:nth-child(odd){
+div#viewComics table tr:nth-child(odd) {
     background-color: #1861a6;
-    color:#ffffe6;
+    color: #ffffe6;
     text-align: center;
-   
-  }
+}
 
-  div#viewComics table th {
+div#viewComics table th {
     background-color: #5c94c1;
     border-radius: 0.3125em;
     color: black;
-    font-size: .9em;
+    font-size: 0.9em;
 }
-  
- 
-   
+
+.btnShowComicInfo:active {
+    background-color: red;
+}
