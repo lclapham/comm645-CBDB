@@ -52,7 +52,8 @@
                     </li>
                     <li><a href="#pgSave" data-icon="action" class="ui-btn-icon-bottom" data-transition="fade">Save</a>
                     </li>
-                    <li><a href="#pgView" data-icon="bars" class="ui-btn-icon-bottom navView" data-transition="fade">View</a>
+                    <li><a href="#pgView" data-icon="bars" class="ui-btn-icon-bottom navView"
+                            data-transition="fade">View</a>
                     </li>
                 </ul>
             </nav>
@@ -180,7 +181,8 @@
                     <li><a href="#pgSave" data-icon="action" class="ui-btn-icon-bottom ui-btn-active ui-state-persist"
                             data-transition="fade">Save</a>
                     </li>
-                    <li><a href="#pgView" data-icon="bars" class="ui-btn-icon-bottom navView" data-transition="fade">View</a>
+                    <li><a href="#pgView" data-icon="bars" class="ui-btn-icon-bottom navView"
+                            data-transition="fade">View</a>
                     </li>
                 </ul>
             </nav>
@@ -201,14 +203,14 @@
                     <input type="text" id="cbPublisher">
 
                     <label for="cbNotes">Notes</label>
-                    <input type="text" id="cbNotes">
+                    <textarea name="cbNotes" id="cbNotes" cols="30" rows="10"></textarea>
 
                     <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-plus" id="cbSaveBtn"
                         type="submit">Save</button>
                 </form>
 
                 <button id="cbResetFrmBtn"
-                class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-refresh">Reset</button>
+                    class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-refresh">Reset</button>
 
             </article>
         </main>
@@ -231,7 +233,8 @@
                     </li>
                     <li><a href="#pgSave" data-icon="action" class="ui-btn-icon-bottom" data-transition="fade">Save</a>
                     </li>
-                    <li><a href="#pgView" data-icon="bars" class="ui-btn-icon-bottom ui-btn-active ui-state-persist navView"
+                    <li><a href="#pgView" data-icon="bars"
+                            class="ui-btn-icon-bottom ui-btn-active ui-state-persist navView"
                             data-transition="fade">View</a>
                     </li>
                 </ul>
@@ -241,11 +244,11 @@
         <main>
             <article role="main" class="ui-content">
                 <h2>Comics List</h2>
-               
-                
+
+
                 <div id=viewComics></div>
-                <button id="btnShowComicInfo">View Comics</button>
-                <button id="btnDeleteComic">Delete Comics</button>
+                <!-- <button id="btnEditComicInfo">Edit Comics</button>
+                <button id="btnDeleteComic">Delete Comics</button> -->
             </article>
         </main>
 
@@ -272,10 +275,66 @@
                 <button id="uLogoutBtn" type="submit">Log Out</button>
             </div>
             <div>
+                <button id="dataBaseDeleteBtn">Delete All Comics</button>
+            </div>
+            <div>
                 <p>Design by: Lamar Clapham &ltlamar.clapham@test.com&gt</p>
             </div>
         </main>
 
+        <footer data-role="footer" data-position="relative">
+            <h4>Copyright &copy; 2020</h4>
+        </footer>
+    </section>
+
+    <!-- Edit Page Start -->
+    <section data-theme="c" data-role="page" id="pgEditComic">
+        <!-- Navbar setup Start -->
+        <header data-role="header">
+            <h1>Edit Comics</h1>
+            <a href="#pgOptions" data-icon="gear" class="ui-btn-right">Options</a>
+
+            
+        </header>
+
+        <!-- Edit Page Body Start -->
+        <main>
+            <article role="main" class="ui-content">
+
+                <form action="" id="fmEditComicInfo">
+                    <label for="cbTitleEdit">Title</label>
+                    <input type="text" id="cbTitleEdit">
+
+                    <label for="cbVolEdite">Volume</label>
+                    <input type="text" id="cbVolEdit">
+
+                    <label for="cbYearEdit">Year</label>
+                    <input type="text" id="cbYearEdit">
+
+                    <label for="cbPublisherEdit">Publisher</label>
+                    <input type="text" id="cbPublisherEdit">
+
+                    <label for="cbNotesEdit">Notes</label>
+                    <textarea name="cbNotesEdit" id="cbNotesEdit" cols="30" rows="10"></textarea>
+
+                    <!-- Save Changes -->
+                    <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-edit" id="cbUpdateBtn"
+                        type="submit">Update Comic</button>
+                                    
+                </form>
+                   <!-- Cancel Actions -->
+                   <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-forbidden" id="cbCancelBtn"
+                   type="button">Cancel Edit</button>
+                   
+               <!-- Delete Actions -->
+               <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-delete" id="btnDeleteComic"
+                   type="button">Delete Comic</button>
+
+            </article>
+
+        </main>
+
+        <!-- Footer Start -->
         <footer data-role="footer" data-position="relative">
             <h4>Copyright &copy; 2020</h4>
         </footer>

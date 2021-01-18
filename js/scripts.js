@@ -66,40 +66,231 @@ function onDeviceReady(event) {
 
     });
 
-    // View Page Event Listners
-    // Placeholder for view button
-
-    // #pgView Delete button
-
-    $('#btnDeleteComic').click(function () {
-        let tableLength = $('#pgViewTable tr').length - 1;
-
-        for (i = 0; i < tableLength; i++) {
-            let rowIdDelete ="";
-            if ($("#rowSelect" + [i]).is(':checked') == true) {
-                rowIdDelete = $('#rowSelect' + [i]).parent().parent().attr('id');
-                console.log("We are deleting this row " + rowIdDelete)
-                deleteComics(rowIdDelete);
-                fnViewComics();
-                // myDB.get(rowIdDelete).then(function (doc) {
-                //     return myDB.remove(doc);
-                    
-                // });
-            } else {
-                console.log("nothing to delete")
-            }
-            fnViewComics();
-        }
-
+    // Options Page Event Listeners
+    $('#dataBaseDeleteBtn').click(function () {
+        console.log('dataBaseDeleteBtn is working');
+        deleteDB();
     });
 
-    function deleteComics(rowIdDelete){
-        myDB.get(rowIdDelete).then(function (doc) {
-                return myDB.remove(doc);
-                
-            });
+    // Update Entry Feature
 
+    // View Page Event Listeners
+
+    // Placeholder for Edit  button
+
+
+    // $('#btnEditComicInfo').click(function () {
+    //     let tableLength = $('#pgViewTable tr').length - 1;
+    //     console.log("We at the start")
+    //     for (i = 0; i < tableLength; i++) {
+    //         let rowIdUpdate = "";
+    //         if ($("#rowSelect" + [i]).is(':checked') == true) {
+    //             rowIdUpdate = $('#rowSelect' + [i]).parent().parent().attr('id');
+
+    //             //insert update function
+    //             updateComicsRow(rowIdUpdate);
+    //         } else {
+    //             return console.log("User did not select any check boxes")
+
+    //         }
+    //     }
+
+    // });
+
+    // Update Comic Entries
+    // function updateComicsRow(rowIdUpdate) {
+    //     console.log("This is the value rowIdUpdate: " +rowIdUpdate)
+    //     myDB.get(doc(rowIdUpdate), function (failure, success) {
+    //         if (failure) {
+    //             console.log("Error getting the comic for update. Error Message: " + failure.message);
+    //         } else {
+    //             console.log("Success getting the comic: " + success.title);
+    //             $(":mobile-pagecontainer").pagecontainer("change", "#pgEditComic");
+    //             $("#")
+
+    //             $('#cbTitleEdit').val(success.title);
+    //                 // $('#cbVolEdit')
+    //                 // $('#cbYearEdit')
+    //                 // $('#cbPublisherEdit')
+    //                 // $("#cbNotesEdit")
+    //                 // "title": $cbTitleVal,
+    //                 // "number": $cbVolVal,
+    //                 // "year": $cbYearVal,
+    //                 // "publisher": $cbPublisherVal,
+    //                 // "notes": $cbNotesVal
+    //         };
+    //     });
+
+    // }
+
+
+    // #pgView Delete button event listener
+
+    // $('#btnDeleteComic').click(function () {
+    //     let tableLength = $('#pgViewTable tr').length - 1;
+
+    //     for (i = 0; i < tableLength; i++) {
+    //         let rowIdDelete = "";
+    //         if ($("#rowSelect" + [i]).is(':checked') == true) {
+    //             rowIdDelete = $('#rowSelect' + [i]).parent().parent().attr('id');
+    //             // MAKE SURE THE USER KNOWS THIS DELETING IS PERMANENT CALL
+    //             userConfirmation(rowIdDelete);
+    //         } else {
+    //             return console.log("User did not select any check boxes")
+
+    //         }
+    //     }
+
+    // });
+
+    // User Confirmation Function  For Deleting Rows
+    // function userConfirmation(rowIdDelete) {
+    //     let results = window.confirm("Are you Sure?  Deleting Cannot be undone.");
+
+    //     if (results == true) {
+    //         deleteComicsRow(rowIdDelete);
+    //     } else {
+    //         fnViewComics();
+    //         return console.log("User cancelled delete at Confirmation window")
+    //     };
+
+    // }
+
+    // This function allows the user to delete individual rows of selected databases
+    // function deleteComicsRow(rowIdDelete) {
+    //     myDB.get(rowIdDelete).then(function (doc) {
+    //         myDB.remove(doc);
+    //         fnViewComics();
+
+    //     });
+
+    // }
+
+    // This function allows the user to completely delete the my.DB
+    function deleteDB() {
+        if (window.confirm("Proceeding will delete all stored comic book data")) {
+            console.log("User selected to delete my.DB")
+            if (window.confirm("Are you sure? This action cannot be undone")) {
+                console.log("User confirmed delete of my.DB")
+
+                // This deletes my.db
+                myDB.destroy(function (failure, success) {
+                    if (failure) {
+                        console.log("Error deleting my.DB " + failure.message);
+                    } else {
+                        console.log("Database delete: " + success.ok);
+                        // Recreate the database
+                        myDB = new PouchDB("myComics");
+                        // Call view to update DB screens
+                        fnViewComics();
+                    }
+                });
+
+            } else {
+                console.log("User cancelled my.DB deletion")
+            }
+        }
     }
+
+    // UPDATE DATABASE ENTRIES #pgEditComic
+    let comicWIP = "";
+
+    function fnEditComic(thisComic) {
+        console.log("Edit Comic Function Working" + thisComic.context.id);
+        myDB.get(thisComic.context.id, function (failure, success) {
+            if (failure) {
+                console.log("Error getting the comic for update. Error Message: " + failure.message);
+            } else {
+                console.log("Success getting the comic: " + success.title);
+                // $(":mobile-pagecontainer").pagecontainer("change", "#pgEditComic");
+                $('#cbTitleEdit').val(success.title);
+                $('#cbVolEdit').val(success.number);
+                $('#cbYearEdit').val(success.year);
+                $('#cbPublisherEdit').val(success.publisher);
+                $("#cbNotesEdit").val(success.notes);
+
+                comicWIP = success._id;
+            }
+
+        });
+        $(":mobile-pagecontainer").pagecontainer("change", "#pgEditComic", { "role": "dialog" });
+    };
+    function fnEditComicCancel() {
+        
+        console.log("We In cancel")
+        $("#pgEditComic").dialog("close");
+    }
+
+    function fnEditComicConfirm(event) {
+        event.preventDefault();
+        console.log("fnEditComicConfirm is running with " + comicWIP);
+
+        let $valInTitleEdit = $('#cbTitleEdit').val(),
+            $valInNumberEdit = $("#cbVolEdit").val(),
+            $valInYearEdit = $('#cbYearEdit').val(),
+            $valInPublisherEdit = $('#cbPublisherEdit').val(),
+            $valInNotesEdit = $('#cbNotesEdit').val();
+
+        myDB.get(comicWIP, function (failure, success) {
+            if (failure) {
+                console.log("Error: " + failure.message);
+            } else {
+                console.log("About to update " + success._id)
+                myDB.put({
+                    "_id": success._id,
+                    "_rev": success._rev,
+                    "title": $valInTitleEdit,
+                    "number": $valInNumberEdit,
+                    "year": $valInYearEdit,
+                    "publisher": $valInPublisherEdit,
+                    "notes": $valInNotesEdit
+                }, function (failure, success) {
+                    if (failure) {
+                        console.log("Error: " + failure.message);
+                    } else {
+                        console.log("Updated comic: " + success.id);
+                        fnViewComics();
+                        $('#pgEditComic').dialog("close")
+                    }
+                });
+            };
+
+        });
+    };
+
+
+    // Delete Rows Function
+
+    function fnEditComicDelete() {
+        console.log("fnEditComicDelete() is running");
+        myDB.get(comicWIP, function (failure, success) {
+            if (failure) {
+                console.log("Error: " + failure.message);
+            } else {
+                console.log("Deleting: " + success._id);
+                if (window.confirm("Are you sure you want to delete the comic?")) {
+                    console.log("confirm Delete");
+                    myDB.remove(success, function (failure, success) {
+                        if (failure) {
+                            console.log("Couldn't Delete: " + failure.message);
+                        } else {
+                            console.log("Deleted Comic: " + success.ok);
+                            fnViewComics();
+                            $('#pgEditComic').dialog("close")
+                        }
+                    });
+                } else {
+                    console.log("Deletion Cancelled")
+                }
+            }
+        });
+    }
+
+    $("#btnDeleteComic").on("click", fnEditComicDelete);
+
+    $('#viewComics').on("click", "tr.btnShowComicInfo", function () { fnEditComic($(this)); });
+    $('#fmEditComicInfo').submit(function (event) { fnEditComicConfirm(event); });
+    $('#cbCancelBtn').on("click", fnEditComicCancel);
 
     //////////////////////// Functions mainLogin, Signup, Logout, View Comics, Delete Comics
     function mainLogin(event) {
@@ -231,6 +422,7 @@ function onDeviceReady(event) {
                 window.alert("One Comic Saved!")
                 console.log("comic Saved!" + success.ok);
                 $elmSaveComic[0].reset();
+
             }
         });
 
