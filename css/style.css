@@ -47,6 +47,7 @@ div#viewComics table {
     border-radius: 0.3125em;
     word-wrap: break-word;
     text-align: center;
+    table-layout: fixed;
 }
 
 s div#viewComics table tr td {
@@ -71,3 +72,12 @@ div#viewComics table th {
 .btnShowComicInfo:active {
     background-color: red;
 }
+/* 
+#pgViewTable td:nth-child(5) {
+    display: none;
+}
+
+#pgViewTable th:nth-child(5) {
+    display: none;
+}
+ */
