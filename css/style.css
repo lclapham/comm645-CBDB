@@ -7,6 +7,8 @@
     margin-left: auto;
     margin-right: auto;
     padding: 0;
+    scroll-behavior:smooth;
+    overflow: visible !important;
 }
 .ui-content {
     padding: 0 1em;
@@ -45,7 +47,7 @@ div#viewComics table {
     width: 100%;
     border: 2px solid #5e778d;
     border-radius: 0.3125em;
-    word-wrap: break-word;
+    word-wrap:break-word;
     text-align: center;
     /* This fixes the table from overlapping */
     table-layout: fixed;
@@ -72,6 +74,11 @@ div#viewComics table th {
 
 .btnShowComicInfo:active {
     background-color: red;
+}
+
+.btnContainer {
+    width: 90%;
+    margin: auto;
 }
 /* 
 #pgViewTable td:nth-child(5) {
