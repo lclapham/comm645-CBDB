@@ -366,7 +366,7 @@ function onDeviceReady(event) {
                 }
 
                 // let comicData = "<table id='pgViewTable'><tr><th>Name</th><th>Vol/Issue #</th><th>Year</th><th>Publisher</th><th>Notes</th><th>Select</th></tr>"
-                let comicData = "<table id='pgViewTable'><tr><th>Name</th><th>Vol/Issue #</th><th>Year</th><th>Publisher</th><th>Notes</th></tr>"
+                let comicData = "<table id='pgViewTable'><tr><th>Name</th><th>Vol #</th><th>Year</th><th>Publisher</th><th>Notes</th></tr>"
 
                 for (let i = 0; i < success.rows.length; i++) {
                     comicData += "<tr class='btnShowComicInfo' id='" + success.rows[i].doc._id + "'> <td>" +
