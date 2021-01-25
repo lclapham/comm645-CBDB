@@ -86,6 +86,14 @@ div#viewComics table th {
 #viewPgMain {
     padding:0;
 }
+
+#designerSig {
+    margin: 20px 20px;
+}
+
+div>h4 {
+    margin: 20px 20px;
+}
 /* 
 #pgViewTable td:nth-child(5) {
     display: none;
